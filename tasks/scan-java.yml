@@ -7,8 +7,8 @@
     mode: 0777
 
 - name: run scan-java script
-    script: /tmp/scan-java.sh
-    register: console
+  script: /tmp/scan-java.sh
+  register: console
 
 - debug: msg="{{ console.stdout }}"
 - debug: msg="{{ console.stderr }}"
