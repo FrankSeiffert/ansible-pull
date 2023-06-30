@@ -1,0 +1,8 @@
+- hosts: all
+
+- name run scan-java script
+    ansible.builtin.script: ./scripts/scan-java.sh
+    register: console
+
+- debug: msg="{{ console.stdout }}"
+- debug: msg="{{ console.stderr }}"
