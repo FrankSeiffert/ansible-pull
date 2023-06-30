@@ -4,3 +4,4 @@
       - htop
       - mc
       - tmux
+      - curl
