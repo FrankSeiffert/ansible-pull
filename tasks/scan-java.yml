@@ -6,6 +6,7 @@
     group: root
     mode: 0777
 
+
 - name: run scan-java script
   script: /tmp/scan-java.sh
   register: console
@@ -13,3 +14,16 @@
 - debug: msg="{{ console.stdout }}"
 - debug: msg="{{ console.stderr }}"
 
+
+- name: send file by email
+  mail:
+    host: exchange.intra.bender
+    port: 25
+    sender: "svc-ansible@bender.de"
+    to: "frank.seiffert@ebee.de"
+    subject: 'JavaAdvisory Result from {{ inventory_hostname }}'
+    subtype: html
+    body: ' hier kommt die Maus'
+    attach:
+      - /tmp/java-{{ inventory_hostname }}.txt
+    delegate_to: localhost
