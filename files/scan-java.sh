@@ -2,7 +2,7 @@
 
 printf "" > /tmp/java-$(hostname).txt
 
-for f in $(find / -xdev -name java -type f ! -size 0 -exec grep -IL . "{}" \;); do
+for f in $(sudo find / -xdev -name java -type f ! -size 0 -exec grep -IL . "{}" \;); do
   printf "java;" >> /tmp/java-$(hostname).txt
   dirname $f | tr -d "\n" >> /tmp/java-$(hostname).txt
   printf ";" >> /tmp/java-$(hostname).txt
