@@ -1,4 +1,4 @@
-- name copy scan-java script
+- name: copy scan-java script
   copy:
     src: files/scan-java.sh
     dest: /tmp/scan-java.sh
@@ -6,7 +6,7 @@
     group: root
     mode: 0777
 
-- name run scan-java script
+- name: run scan-java script
     script: /tmp/scan-java.sh
     register: console
 
