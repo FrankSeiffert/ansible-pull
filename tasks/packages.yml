@@ -5,3 +5,4 @@
       - mc
       - tmux
       - curl
+      - bsd-mailx
