@@ -1,3 +1,5 @@
+# Playbook fuer ansible-pull
+
 - hosts: localhost
   connection: local
   become: true
