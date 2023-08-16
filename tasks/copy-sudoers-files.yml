@@ -1,0 +1,15 @@
+- name: copy sudoers.d files 
+  copy:
+    src: files/10_sssd
+    dest: /etc/sudoers.d/10_sssd
+    owner: root
+    group: root
+    mode: 0440
+
+  copy:
+    src: files/30_bender_sudoers
+    dest: /etc/sudoers.d/30_bender_sudoers
+    owner: root
+    group: root
+    mode: 0440
+
