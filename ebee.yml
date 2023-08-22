@@ -1,0 +1,19 @@
+# Playbook fuer ansible-pull
+
+- hosts: localhost
+  connection: local
+  become: true
+
+  pre_tasks:
+    - name: update repo
+      apt:
+        update_cache: yes
+      changed_when: false
+
+  tasks:
+#    - include: tasks/users.yml
+#    - include: tasks/cron.yml
+#    - include: tasks/packages.yml
+#    - include: tasks/scan-java.yml
+    - include: tasks/copy-sudoers-files.yml
+    
