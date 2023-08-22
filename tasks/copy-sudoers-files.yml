@@ -1,9 +1,3 @@
-# Playbook fuer ansible-pull
-
-- hosts: localhost
-  connection: local
-  become: true
-
 - name: copy sudoers.d files 
   copy:
     src: files/10_sssd
