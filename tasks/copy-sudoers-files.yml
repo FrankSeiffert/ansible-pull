@@ -1,15 +1,12 @@
 - name: copy sudoers.d files 
   copy:
-    src: files/10_sssd
-    dest: /etc/sudoers.d/10_sssd
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
     owner: root
     group: root
     mode: 0440
-
-  copy:
-    src: files/30_bender_sudoers
-    dest: /etc/sudoers.d/30_bender_sudoers
-    owner: root
-    group: root
-    mode: 0440
-
+  loop:
+    - src: files/30_bender_sudoers
+      dest: /etc/sudoers.d/30_bender_sudoers
+    - src: files/10_sssd
+      dest: /etc/sudoers.d/10_sssd
