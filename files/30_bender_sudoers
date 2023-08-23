@@ -25,6 +25,7 @@ USERS ALL = NOPASSWD: /usr/bin/purge-old-kernels
 USERS ALL = NOPASSWD: /usr/bin/snap *
 USERS ALL = /sbin/reboot
 USERS ALL = /sbin/shutdown *
+USERS ALL = /usr/bin/flatpak *
 %gl_drs_lnx_sudo.netadm ALL = NOPASSWD: /bin/ip *
 %gl_drs_lnx_sudo.netadm ALL = NOPASSWD: /sbin/route *
 %gl_drs_lnx_sudo.netadm ALL = NOPASSWD: /sbin/ifconfig *
