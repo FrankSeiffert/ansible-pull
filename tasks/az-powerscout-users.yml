@@ -17,4 +17,4 @@
   authorized_key:
     user: az-powerscout
     state: present
-    key: https://github.com/FrankSeiffert/ansible-pull/blob/main/files/az-powerscout.keys
+    key: "{{ lookup('file', 'files/az-powerscout.keys') }}"    
