@@ -1,0 +1,14 @@
+- name: create powerscout user
+  user:
+    name: az-powerscout
+    system: yes
+    state: present
+    createhome: yes
+
+- name: copy sudoers_az-powerscout
+  copy:
+    src: files/sudoers_az-powerscout
+    dest: /etc/sudoers.d/az-powerscout
+    owner: root
+    group: root
+    mode: 0440
