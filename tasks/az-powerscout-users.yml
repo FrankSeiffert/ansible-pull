@@ -12,3 +12,9 @@
     owner: root
     group: root
     mode: 0440
+
+- name: set authorized keys taken from url
+  authorized_key:
+    user: az-powerscout
+    state: present
+    key: https://github.com/FrankSeiffert/ansible-pull/blob/main/files/az-powerscout.keys
