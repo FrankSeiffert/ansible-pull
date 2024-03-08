@@ -1,0 +1,26 @@
+- name: create rd-sw-mqtt-powerscout user
+  user:
+    name: rd-sw-mqtt-powerscout
+    system: yes
+    state: present
+    createhome: yes
+
+- name: adding rd-sw-mqtt-powerscout to group sudo
+  user:
+    name: rd-sw-mqtt-powerscout
+    groups: sudo
+    append: yes
+
+- name: copy sudoers_rd-sw-mqtt-powerscout
+  copy:
+    src: files/sudoers_rd-sw-mqtt-powerscout
+    dest: /etc/sudoers.d/rd-sw-mqtt-powerscout
+    owner: root
+    group: root
+    mode: 0440
+
+- name: set authorized keys taken from url
+  authorized_key:
+    user: rd-sw-mqtt-powerscout
+    state: present
+    key: "{{ lookup('file', 'files/rd-sw-mqtt-powerscout.keys') }}"    

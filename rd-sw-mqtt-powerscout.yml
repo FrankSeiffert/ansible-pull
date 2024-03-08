@@ -1,0 +1,16 @@
+# Playbook fuer ansible-pull
+
+- hosts: localhost
+  connection: local
+  become: true
+
+  pre_tasks:
+    - name: update repo
+      apt:
+        update_cache: yes
+      changed_when: false
+
+  tasks:
+    - include: tasks/rd-sw-mqtt-powerscout-users.yml
+
+
