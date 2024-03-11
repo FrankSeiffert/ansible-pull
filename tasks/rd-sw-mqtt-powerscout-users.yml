@@ -11,6 +11,12 @@
     groups: sudo
     append: yes
 
+- name: adding rd-sw-mqtt-powerscout to group docker
+  user:
+    name: rd-sw-mqtt-powerscout
+    groups: docker
+    append: yes
+
 - name: copy sudoers_rd-sw-mqtt-powerscout
   copy:
     src: files/sudoers_rd-sw-mqtt-powerscout
