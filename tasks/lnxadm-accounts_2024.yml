@@ -2,11 +2,13 @@ tasks:
   - include_vars: lnxadm-users.yml
 
   - name: create lnxadm users
-    user: name={{ item.username }} createhome=yes
+    user:
+      name: '{{ item.username }}' createhome=yes
     with-items: '{{lnxadm-users}}'
 
   - name: adding lnxadms to group sudo
-    user: name= {{ item.username }}
+    user:
+      name: '{{ item.username }}'
       groups: sudo
       append: yes
     with-items: '{{lnxadm-users}}'
