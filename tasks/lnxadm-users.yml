@@ -1,12 +1,16 @@
-- name: create ansible user
-  user:
-    name: ansible
-    system: yes
+---
+lnxadm-users:
+  - username: lnxadm.f.seiffert
+    use_sudo: yes
 
-- name: copy sudoers_ansible
-  copy:
-    src: files/sudoers_ansible
-    dest: /etc/sudoers.d/ansible
-    owner: root
-    group: root
-    mode: 0440
+  - username: lnxadm.f.pausch
+    use_sudo: yes
+
+  - username: lnxadm.f.mueller
+    use_sudo: yes
+
+  - username: lnxadm.k.luh
+    use_sudo: yes
+
+  - username: lnxadm.l.wilhelm
+    use_sudo: yes
