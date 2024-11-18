@@ -3,7 +3,7 @@ tasks:
 
   - name: create lnxadm users
     user:
-      name: '{{ item.username }}' createhome=yes
+      name: '{{ item.username }} createhome=yes'
     with-items: '{{lnxadm-users}}'
 
   - name: adding lnxadms to group sudo
