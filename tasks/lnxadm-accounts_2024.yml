@@ -1,6 +1,7 @@
-tasks:
-  - include_vars: lnxadm-users.yml
+var_files: lnxadm-users.yml
 
+tasks:
+  
   - name: create lnxadm users
     user:
       name: '{{ item.username }} createhome=yes'
