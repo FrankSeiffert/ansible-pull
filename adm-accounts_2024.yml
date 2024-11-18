@@ -1,0 +1,18 @@
+# Playbook fuer ansible pull -> erzeuge lnx accounts 2024
+
+- hosts: localhost
+  connection: local
+  become: true
+
+  pre_tasks:
+    - name: update repo
+      apt:
+        update_cache: yes
+      changed_when: false
+
+  tasks:
+#    - include: tasks/lnxadm_2024.yml
+    - include: tasks/lnxadm-accounts_2024.yml
+#    - include: tasks/lnxusr-accounts_2024.yml
+#    - include: tasks/lnxsvc-accounts_2024.yml
+    

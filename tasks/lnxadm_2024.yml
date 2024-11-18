@@ -1,0 +1,12 @@
+- name: create local lnxadm user
+  user:
+    name: lnxadm
+    system: yes
+    state: present
+    createhome: yes
+
+- name: adding lnxadm to group root
+  user:
+    name: lnxadm
+    groups: root
+    append: yes
