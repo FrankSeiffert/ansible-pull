@@ -1,34 +1,35 @@
-- name: create lnxadm-users
-  user: name={{ item.username }}
-  with-items: '{{users}}'
+---
+  - name: create lnxadm-users
+    user: name={{ item.username }}
+    with-items: '{{users}}'
 
-- name: adding lnxadms to group sudo
-  user:
-    name: '{{ item.username }}'
-    groups: sudo
-    append: yes
-  with-items: '{{users}}'
+  - name: adding lnxadms to group sudo
+    user:
+      name: '{{ item.username }}'
+      groups: sudo
+      append: yes
+    with-items: '{{users}}'
 
-- name: copy sudoers lnxadm
-  copy:
-    src: files/sudoers_lnxadm-accounts
-    dest: /etc/sudoers.d/lnxadm-accounts
-    owner: root
-    group: root
-    mode: 0440
+  - name: copy sudoers lnxadm
+    copy:
+      src: files/sudoers_lnxadm-accounts
+      dest: /etc/sudoers.d/lnxadm-accounts
+      owner: root
+      group: root
+      mode: 0440
 
-- name: update sudoers file and validate
-  lineinfile: "dest=/etc/sudoers.d/lnxadm-accounts
-    insertafter=EOF
-    line='{{ item.username }} ALL=(ALL) NOPASSWD: ALL'
-    regexp='^{{ item.username }} .*'
-    state=present"
-  when: "{{item.use_sudo}} == True"
-  with_items: '{{users}}'
+  - name: update sudoers file and validate
+    lineinfile: "dest=/etc/sudoers.d/lnxadm-accounts
+      insertafter=EOF
+      line='{{ item.username }} ALL=(ALL) NOPASSWD: ALL'
+      regexp='^{{ item.username }} .*'
+      state=present"
+    when: "{{item.use_sudo}} == True"
+    with_items: '{{users}}'
 
-- name: lnxadm authorized key upload
-  authorized_key:
-    user={{ item.username }}
-    key="{{ lookup('file', 'pub_keys/{{ item.username }}.pub') }}"
-  with_items: '{{users}}'
-
+  - name: lnxadm authorized key upload
+    authorized_key:
+      user={{ item.username }}
+      key="{{ lookup('file', 'pub_keys/{{ item.username }}.pub') }}"
+    with_items: '{{users}}'
+    
