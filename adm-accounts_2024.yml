@@ -4,6 +4,23 @@
   connection: local
   become: true
 
+  vars:
+    lnxadm-users:
+      - username: lnxadm.f.seiffert
+        use_sudo: yes
+
+      - username: lnxadm.f.pausch
+        use_sudo: yes
+
+      - username: lnxadm.f.mueller
+        use_sudo: yes
+
+      - username: lnxadm.k.luh
+        use_sudo: yes
+
+      - username: lnxadm.l.wilhelm
+        use_sudo: yes
+
   pre_tasks:
     - name: update repo
       apt:
