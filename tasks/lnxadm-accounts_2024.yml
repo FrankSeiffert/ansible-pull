@@ -1,12 +1,15 @@
 - name: more complex items to add several users
   ansible.builtin.user:
     name: "{{ item.name }}"
-    uid: "{{ item.uid }}"
     groups: "{{ item.groups }}"
     state: present
+    use_sudo_nopass: no
   with_items:
-     - { name: testuser1, uid: 1022, groups: "root, sudo" }
-     - { name: testuser2, uid: 1033, groups: sudo }
+     - { name: lnxadm.f.seiffert, groups: "root, sudo" }
+     - { name: lnxadm.f.pausch, groups: "root, sudo" }
+     - { name: lnxadm.f.mueller, groups: "root, sudo" }
+     - { name: lnxadm.l.wilhelm, groups: "root, sudo" }
+     - { name: lnxadm.k.luh, groups: "root, sudo" }
 
 
 
