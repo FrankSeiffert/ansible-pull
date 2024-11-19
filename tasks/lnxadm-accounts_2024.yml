@@ -5,28 +5,16 @@
     state: present
   with_items: '{{users}}'
 
-# - name: more complex items to add several users
-#   ansible.builtin.user:
-#     name: "{{ item.name }}"
-#     groups: "{{ item.groups }}"
-#     state: present
-#   with_items:
-#      - { name: lnxadm.f.seiffert, groups: "root, sudo" }
-#      - { name: lnxadm.f.pausch, groups: "root, sudo" }
-#      - { name: lnxadm.f.mueller, groups: "root, sudo" }
-#      - { name: lnxadm.l.wilhelm, groups: "root, sudo" }
-#      - { name: lnxadm.k.luh, groups: "root, sudo" }
-
 - name: copy sudoers lnxadm
   copy:
-    src: files/sudoers_lnxadm-accounts
-    dest: /etc/sudoers.d/lnxadm-accounts
+    src: files/sudoers-lnx-accounts
+    dest: /etc/sudoers.d/sudoers-lnx-accounts
     owner: root
     group: root
     mode: 0440
 
 - name: update sudoers file and validate
-  lineinfile: "dest=/etc/sudoers.d/lnxadm-accounts
+  lineinfile: "dest=/etc/sudoers.d/sudoers-lnx-accounts
     insertafter=EOF
     line='{{ item.username }} ALL=(ALL) NOPASSWD: ALL'
     regexp='^{{ item.username }} .*'

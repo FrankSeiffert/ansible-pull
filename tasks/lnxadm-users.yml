@@ -24,3 +24,8 @@ users:
     groups: "root, sudo"
     use_sudo: yes
     user_state: present
+
+  - username: lnxusr.h.schwalm
+    groups: "root, sudo"
+    use_sudo: yes
+    user_state: present
