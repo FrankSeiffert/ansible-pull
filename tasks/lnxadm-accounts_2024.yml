@@ -30,6 +30,6 @@
 - name: lnxadm authorized key upload
   authorized_key:
     user={{ item.username }}
-    key="{{ lookup('file', 'pub_keys/{{ item.username }}.pub') }}"
+    key="{{ lookup('file', 'files/pub_keys/{{ item.username }}.pub') }}"
   with_items: '{{users}}'
     
