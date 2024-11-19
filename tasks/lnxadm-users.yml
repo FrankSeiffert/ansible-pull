@@ -1,21 +1,26 @@
 ---
 users:
   - username: lnxadm.f.seiffert
+    groups: "root, sudo"
     use_sudo: yes
     user_state: present
 
   - username: lnxadm.f.pausch
+    groups: "root, sudo"
     use_sudo: yes
     user_state: present
 
   - username: lnxadm.f.mueller
+    groups: "root, sudo"
     use_sudo: yes
     user_state: present
 
   - username: lnxadm.k.luh
+    groups: "root, sudo"
     use_sudo: yes
     user_state: present
 
   - username: lnxadm.l.wilhelm
+    groups: "root, sudo"
     use_sudo: yes
     user_state: present

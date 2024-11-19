@@ -1,14 +1,21 @@
 - name: more complex items to add several users
   ansible.builtin.user:
-    name: "{{ item.name }}"
+    name: "{{ item.username }}"
     groups: "{{ item.groups }}"
     state: present
-  with_items:
-     - { name: lnxadm.f.seiffert, groups: "root, sudo" }
-     - { name: lnxadm.f.pausch, groups: "root, sudo" }
-     - { name: lnxadm.f.mueller, groups: "root, sudo" }
-     - { name: lnxadm.l.wilhelm, groups: "root, sudo" }
-     - { name: lnxadm.k.luh, groups: "root, sudo" }
+  with_items: '{{users}}'
+
+# - name: more complex items to add several users
+#   ansible.builtin.user:
+#     name: "{{ item.name }}"
+#     groups: "{{ item.groups }}"
+#     state: present
+#   with_items:
+#      - { name: lnxadm.f.seiffert, groups: "root, sudo" }
+#      - { name: lnxadm.f.pausch, groups: "root, sudo" }
+#      - { name: lnxadm.f.mueller, groups: "root, sudo" }
+#      - { name: lnxadm.l.wilhelm, groups: "root, sudo" }
+#      - { name: lnxadm.k.luh, groups: "root, sudo" }
 
 - name: copy sudoers lnxadm
   copy:
