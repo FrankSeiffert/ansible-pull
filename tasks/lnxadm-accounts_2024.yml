@@ -1,9 +1,21 @@
-- name: create users
-  user: name={{ item }}
-  with-items:
-     - testuser1
-     - testuser2
+- name: more complex items to add several users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    uid: "{{ item.uid }}"
+    groups: "{{ item.groups }}"
+    state: present
+  with_items:
+     - { name: testuser1, uid: 1022, groups: "root, sudo" }
+     - { name: testuser2, uid: 1033, groups: sudo }
 
+
+
+
+# - name: create users
+#   user: name={{ item }}
+#   with-items:
+#      - testuser1
+#      - testuser2
 # - name: adding lnxadms to group sudo
 # user:
 # name: '{{ item.username }}'
