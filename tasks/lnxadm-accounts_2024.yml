@@ -1,3 +1,4 @@
+---
 - name: create lnxadm-users
   user:
     name: '{{ item.username }}'
