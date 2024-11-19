@@ -18,14 +18,14 @@
     group: root
     mode: 0440
 
-# - name: update sudoers file and validate
-# lineinfile: "dest=/etc/sudoers.d/lnxadm-accounts
-# insertafter=EOF
-# line='{{ item.username }} ALL=(ALL) NOPASSWD: ALL'
-# regexp='^{{ item.username }} .*'
-# state=present"
-# when: "{{item.use_sudo}} == True"
-# with_items: '{{users}}'
+- name: update sudoers file and validate
+  lineinfile: "dest=/etc/sudoers.d/lnxadm-accounts
+    insertafter=EOF
+    line='{{ item.username }} ALL=(ALL) NOPASSWD: ALL'
+    regexp='^{{ item.username }} .*'
+    state=present"
+  when: "{{item.use_sudo}} == True"
+  with_items: '{{users}}'
 
 # - name: lnxadm authorized key upload
 # authorized_key:
