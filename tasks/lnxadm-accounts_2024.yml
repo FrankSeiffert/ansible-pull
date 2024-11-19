@@ -27,9 +27,9 @@
   when: "{{item.use_sudo}} == True"
   with_items: '{{users}}'
 
-# - name: lnxadm authorized key upload
-# authorized_key:
-# user={{ item.username }}
-# key="{{ lookup('file', 'pub_keys/{{ item.username }}.pub') }}"
-# with_items: '{{users}}'
+- name: lnxadm authorized key upload
+  authorized_key:
+    user={{ item.username }}
+    key="{{ lookup('file', 'pub_keys/{{ item.username }}.pub') }}"
+  with_items: '{{users}}'
     

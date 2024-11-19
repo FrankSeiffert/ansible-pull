@@ -3,12 +3,12 @@
 - hosts: localhost
   connection: local
   become: true
-  
-  pre_tasks:
-    - name: update repo
-      apt:
-        update_cache: yes
-      changed_when: false
+
+  # pre_tasks:
+  #   - name: update repo
+  #     apt:
+  #       update_cache: yes
+  #     changed_when: false
 
   tasks:
   - include_vars: tasks/lnxadm-users.yml
