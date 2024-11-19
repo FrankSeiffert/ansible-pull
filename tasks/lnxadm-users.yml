@@ -1,5 +1,5 @@
 ---
-lnxadm-users:
+users:
   - username: lnxadm.f.seiffert
     use_sudo: yes
 
