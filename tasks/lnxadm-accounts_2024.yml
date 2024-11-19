@@ -3,7 +3,6 @@
     name: "{{ item.name }}"
     groups: "{{ item.groups }}"
     state: present
-    use_sudo_nopass: no
   with_items:
      - { name: lnxadm.f.seiffert, groups: "root, sudo" }
      - { name: lnxadm.f.pausch, groups: "root, sudo" }
@@ -11,28 +10,13 @@
      - { name: lnxadm.l.wilhelm, groups: "root, sudo" }
      - { name: lnxadm.k.luh, groups: "root, sudo" }
 
-
-
-
-# - name: create users
-#   user: name={{ item }}
-#   with-items:
-#      - testuser1
-#      - testuser2
-# - name: adding lnxadms to group sudo
-# user:
-# name: '{{ item.username }}'
-# groups: sudo
-# append: yes
-# with-items: '{{users}}'
-
-# - name: copy sudoers lnxadm
-# copy:
-# src: files/sudoers_lnxadm-accounts
-# dest: /etc/sudoers.d/lnxadm-accounts
-# owner: root
-# group: root
-# mode: 0440
+- name: copy sudoers lnxadm
+  copy:
+    src: files/sudoers_lnxadm-accounts
+    dest: /etc/sudoers.d/lnxadm-accounts
+    owner: root
+    group: root
+    mode: 0440
 
 # - name: update sudoers file and validate
 # lineinfile: "dest=/etc/sudoers.d/lnxadm-accounts
