@@ -10,6 +10,8 @@
         update_cache: yes
       changed_when: false
 
+  var_files: lnxadm-users.yml
+
   tasks:
 #    - include: tasks/lnxadm_2024.yml
     - include_tasks: tasks/lnxadm-accounts_2024.yml

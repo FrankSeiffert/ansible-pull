@@ -1,5 +1,3 @@
-var_files: lnxadm-users.yml
-
 tasks:
   
   - name: create lnxadm users
