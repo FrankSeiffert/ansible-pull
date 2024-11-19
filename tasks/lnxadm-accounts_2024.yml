@@ -1,6 +1,8 @@
-- name: sddsfasdfasdf
-  user: name={{ item.users }}
-  with-items: '{{users}}'
+- name: create users
+  user: name={{ item }}
+  with-items:
+     - testuser1
+     - testuser2
 
 # - name: adding lnxadms to group sudo
 # user:
