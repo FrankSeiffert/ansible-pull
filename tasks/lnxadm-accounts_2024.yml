@@ -1,7 +1,7 @@
 - name: create lnxadm-users
   user:
     name: "{{item.username}}"
-  with-items: "{{lnxadm-users}}""
+  with-items: "{{lnxadm-users}}"
 
 - name: adding lnxadms to group sudo
   user:
