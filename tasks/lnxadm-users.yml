@@ -4,28 +4,34 @@ users:
     groups: "root, sudo"
     use_sudo: yes
     user_state: present
+    shell: /bin/bash
 
   - username: lnxadm.f.pausch
     groups: "root, sudo"
     use_sudo: yes
     user_state: present
+    shell: /bin/bash
 
   - username: lnxadm.f.mueller
     groups: "root, sudo"
     use_sudo: yes
     user_state: present
+    shell: /bin/bash
 
   - username: lnxadm.k.luh
     groups: "root, sudo"
     use_sudo: yes
     user_state: present
+    shell: /bin/bash
 
   - username: lnxadm.l.wilhelm
     groups: "root, sudo"
     use_sudo: yes
     user_state: present
+    shell: /bin/bash
 
   - username: lnxusr.h.schwalm
     groups: "root, sudo"
     use_sudo: yes
     user_state: present
+    shell: /bin/bash

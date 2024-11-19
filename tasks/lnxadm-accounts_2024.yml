@@ -2,6 +2,7 @@
   ansible.builtin.user:
     name: "{{ item.username }}"
     groups: "{{ item.groups }}"
+    shell: "{{ item.shell }}"
     state: present
   with_items: '{{users}}'
 

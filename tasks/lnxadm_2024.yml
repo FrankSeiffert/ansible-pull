@@ -4,6 +4,7 @@
     system: yes
     state: present
     createhome: yes
+    shell: /bin/bash
 
 - name: adding lnxadm to group root
   user:
