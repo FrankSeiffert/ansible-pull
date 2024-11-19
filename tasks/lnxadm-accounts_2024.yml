@@ -1,6 +1,6 @@
 - name: create lnxadm users
   user:
-    name: '{{ item.username }}'
+    name: "{{item.username}}"
   with-items: '{{lnxadm-users}}'
 
 - name: adding lnxadms to group sudo
@@ -8,7 +8,7 @@
     name: '{{ item.username }}'
     groups: sudo
     append: yes
-  with-items: '{{lnxadm-users}}'
+  with-items: "{{lnxadm-users}}"
 
 - name: copy sudoers lnxadm
   copy:
@@ -24,8 +24,8 @@
     line='{{ item.username }} ALL=(ALL) NOPASSWD: ALL'
     regexp='^{{ item.username }} .*'
     state=present"
-  when: '{{ item.use_sudo }} == True'
-  with_items: '{{lnxadm-users}}'
+  when: "{{item.use_sudo}} == True"
+  with_items: "{{lnxadm-users}}"
 
 - name: lnxadm authorized key upload
   authorized_key:
