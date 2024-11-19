@@ -3,24 +3,19 @@ users:
   - username: lnxadm.f.seiffert
     use_sudo: yes
     user_state: present
-    use_sudo_nopass: no
 
   - username: lnxadm.f.pausch
     use_sudo: yes
     user_state: present
-    use_sudo_nopass: no
 
   - username: lnxadm.f.mueller
     use_sudo: yes
     user_state: present
-    use_sudo_nopass: no
 
   - username: lnxadm.k.luh
     use_sudo: yes
     user_state: present
-    use_sudo_nopass: no
 
   - username: lnxadm.l.wilhelm
     use_sudo: yes
     user_state: present
-    use_sudo_nopass: no

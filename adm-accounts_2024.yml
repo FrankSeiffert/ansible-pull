@@ -38,7 +38,7 @@
       changed_when: false
 
   tasks:
-#  - include_vars: tasks/lnxadm-users.yml
+  - include_vars: tasks/lnxadm-users.yml
 #    - include: tasks/lnxadm_2024.yml
   - include_tasks: tasks/lnxadm-accounts_2024.yml
 #    - include: tasks/lnxusr-accounts_2024.yml
