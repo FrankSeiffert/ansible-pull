@@ -4,6 +4,33 @@
   connection: local
   become: true
 
+  vars:
+    users:
+      - username: lnxadm.f.seiffert
+        use_sudo: yes
+        user_state: present
+        use_sudo_nopass: no
+
+#  - username: lnxadm.f.pausch
+#    use_sudo: yes
+#    user_state: present
+#    use_sudo_nopass: no
+#
+#  - username: lnxadm.f.mueller
+#    use_sudo: yes
+#    user_state: present
+#    use_sudo_nopass: no
+#
+#  - username: lnxadm.k.luh
+#    use_sudo: yes
+#    user_state: present
+#    use_sudo_nopass: no
+#
+#  - username: lnxadm.l.wilhelm
+#    use_sudo: yes
+#    user_state: present
+#    use_sudo_nopass: no
+
   pre_tasks:
     - name: update repo
       apt:
@@ -11,7 +38,7 @@
       changed_when: false
 
   tasks:
-  - include_vars: tasks/lnxadm-users.yml
+#  - include_vars: tasks/lnxadm-users.yml
 #    - include: tasks/lnxadm_2024.yml
   - include_tasks: tasks/lnxadm-accounts_2024.yml
 #    - include: tasks/lnxusr-accounts_2024.yml
